@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">StopWhatch</string>
+    <string name="init_time">00:00:00</string>
+    <string name="timerStart">ПУСК</string>
+    <string name="timerStop">ПАУЗА</string>
+    <string name="timerRestart">СБРОС</string>
+</resources>

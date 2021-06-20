@@ -10,10 +10,11 @@ import android.widget.TextView;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
-private int seconds = 0;
-private boolean isRunning = false;
-private TextView textViewTimer;
-private  boolean wasRunning = false;
+    private int seconds = 0;
+    private boolean isRunning = false;
+    private TextView textViewTimer;
+    private boolean wasRunning = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,28 +25,33 @@ private  boolean wasRunning = false;
 
     public void onclickStartTimer(View view) {
         isRunning = true;
-wasRunning = true;
+        wasRunning = true;
     }
 
     public void onclickStopTimer(View view) {
         if (wasRunning) {
             isRunning = false;
             wasRunning = false;
-        } else { isRunning = true; wasRunning = true;}
+        } else {
+            isRunning = true;
+            wasRunning = true;
+        }
     }
 
     public void onclickRestartTimer(View view) {
-        isRunning = false;wasRunning = false;
+        isRunning = false;
+        wasRunning = false;
         seconds = 0;
     }
-    private  void runTimer(){
-      final  Handler handler = new Handler();
+
+    private void runTimer() {
+        final Handler handler = new Handler();
         handler.post(new Runnable() {
             @Override
             public void run() {
                 int hours = seconds / 3600;
-                int minutes = (seconds % 3600) /60;
-                int secs = seconds %  60;
+                int minutes = (seconds % 3600) / 60;
+                int secs = seconds % 60;
                 String time = String.format(Locale.getDefault(), "%02d:%02d:%02d", hours, minutes, secs);
                 textViewTimer.setText(time);
                 if (isRunning) {

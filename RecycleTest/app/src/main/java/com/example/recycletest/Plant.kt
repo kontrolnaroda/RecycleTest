@@ -1,3 +1,5 @@
 package com.example.recycletest
 
-data class Plant(val img_ID: Int, val tittle: String)
+import java.io.Serializable
+
+data class Plant(val img_ID: Int, val tittle: String): Serializable
